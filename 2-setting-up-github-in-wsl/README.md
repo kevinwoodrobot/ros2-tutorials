@@ -1,4 +1,5 @@
 # Setting Up Github in WSL
+# Setting Up Github in WSL 
 1. Set up Credentials 
 ```bash 
 git config --global user.name "yourusername"
