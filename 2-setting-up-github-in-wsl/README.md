@@ -9,5 +9,5 @@ git config --global user.email "youremail@gmail.com"
 ssh-keygen -t rsa -b 4096 -C "youremail@gmail.com"
 cat ~/.ssh/id_rsa.pub
 ```
-3. Store key in Github `Settings > SSH and GPG keys > New SSH key`
+3. Paste key in Github `Settings > SSH and GPG keys > New SSH key`
 4. Clone repo and ready to go! 
