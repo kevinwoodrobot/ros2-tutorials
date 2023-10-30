@@ -1,4 +1,6 @@
 # Install WSL
+Website: https://learn.microsoft.com/en-us/windows/wsl/install
+
 1. Open PowerShell in Admin Mode. 
 2. Run `wsl --install`.
 3. Restart.
@@ -16,5 +18,4 @@
 3. Right click explorer to reveal in folder and save folder path. 
 
 
-# Reference
-https://learn.microsoft.com/en-us/windows/wsl/install
+# Next Video:<br>Setting Up Github in WSL

@@ -1,1 +1,16 @@
+# Ignore Folder 
+prerelease
 thumbnail
+
+# Ignore Files 
+thumbnail.png
+timestamps.txt
+README_KW.md 
+tags.txt 
+demo.py 
+
+# Ignore File Types 
+*.mkv 
+*.gslides
+*.pdf 
+*.pptx 
