@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ignore Folder 
 prerelease
 thumbnail
@@ -14,3 +15,7 @@ demo.py
 *.gslides
 *.pdf 
 *.pptx 
+=======
+thumbnail
+prerelease
+>>>>>>> 5bea3da26b155b5a856f22c30da37f21683e979d
