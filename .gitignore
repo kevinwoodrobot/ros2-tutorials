@@ -1,6 +1,7 @@
 # Ignore Folder 
 prerelease
 thumbnail
+scheduled 
 
 # Ignore Files 
 thumbnail.png
@@ -14,3 +15,4 @@ demo.py
 *.gslides
 *.pdf 
 *.pptx 
+
