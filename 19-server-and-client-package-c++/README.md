@@ -17,7 +17,7 @@ int64 b
 int64 sum
 ```
 
-2. For the srvcli src, copy `ros2-tutorial/19-.../add_two_ints_server.cpp` and `ros2-tutorial/17-.../add_two_ints_client.cpp` into `~/ros2_ws/src/cpp_srvcli/src`
+2. For the srvcli src, copy `ros2-tutorials/19-.../add_two_ints_server.cpp` and `ros2-tutorials/17-.../add_two_ints_client.cpp` into `~/ros2_ws/src/cpp_srvcli/src`
 
 - C++ Function Pointer
 https://www.youtube.com/watch?v=Mvni51kg8zY
