@@ -3,6 +3,7 @@ prerelease
 thumbnail
 scheduled 
 videos 
+.vscode 
 
 # Ignore Files 
 thumbnail.png
