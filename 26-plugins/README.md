@@ -1,5 +1,5 @@
 # Plugins 
-Plugins lets you dynamically load new functionality to your code without having to recompile the codes that's using it! 
+In this ros2 tutorial video, I will show you how to make your own ros2 plugin. We will start off by making a base class package. Then we will create a plugin package that will use the base class package. We will make the plugin xml file required to use the plugin in ros. And finally, we will see the plugin in action. Plugins lets you dynamically load new functionality to your code without having to recompile the codes that's using it, so it may be quite useful! 
 
 # C++ References 
 - C++ Classes: 
