@@ -1,0 +1,5 @@
+/**: # wild card syntax works for all nodes names and namespaces
+   ros__parameters:
+      background_b: 255
+      background_g: 86
+      background_r: 150
