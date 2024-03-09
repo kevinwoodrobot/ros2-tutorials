@@ -4,6 +4,9 @@ thumbnail
 scheduled 
 videos 
 .vscode 
+49-gazebo-tutorial/gazebo_tutorial/meshes
+49-gazebo-tutorial/gazebo_tutorial_py
+49-gazebo-tutorial/models
 
 # Ignore Files 
 thumbnail.png

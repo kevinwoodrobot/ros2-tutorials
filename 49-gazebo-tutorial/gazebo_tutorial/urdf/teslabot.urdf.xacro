@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<robot name="robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <link name="world"/>
+
+  <link name="head">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx=".1" ixy="0" ixz="0" iyy=".1" iyz="0" izz=".1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <!-- <cylinder radius="0.01" length=".5" /> -->
+        <mesh filename="$(find gazebo_tutorial)/meshes/head.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/> <!-- Black color -->
+      </material>
+    </visual>
+  </link>
+
+  <joint name="world_to_head" type="fixed">
+    <origin xyz="0 0 1" />
+    <parent link="world"/>
+    <child link="head"/>
+  </joint>
+
+  <link name="body">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx=".1" ixy="0" ixz="0" iyy=".1" iyz="0" izz=".1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find gazebo_tutorial)/meshes/body.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="head_to_body" type="fixed">
+    <origin xyz="0 0 0" />
+    <parent link="head"/>
+    <child link="body"/>
+  </joint>
+
+  <link name="shoulder_right">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx=".1" ixy="0" ixz="0" iyy=".1" iyz="0" izz=".1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find gazebo_tutorial)/meshes/shoulder.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="body_to_shoulder_right" type="revolute">
+    <origin xyz="0.206 0 -0.0635" rpy="-${pi/2} 0 0"/>
+    <parent link="body"/>
+    <child link="shoulder_right"/>
+    <axis rpy="0 0 0" xyz="0 0 1"/> 
+    <limit lower="-${pi}" upper="${pi}" effort="100" velocity="20"/>
+  </joint>
+
+  <link name="shoulder_left">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx=".1" ixy="0" ixz="0" iyy=".1" iyz="0" izz=".1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find gazebo_tutorial)/meshes/shoulder.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="body_to_shoulder_left" type="revolute">
+    <origin xyz="-0.206 0 -0.0635" rpy="${pi/2} 0 ${pi}"/>
+    <parent link="body"/>
+    <child link="shoulder_left"/>
+    <axis rpy="0 0 0" xyz="0 0 1"/> 
+    <limit lower="-${pi}" upper="${pi}" effort="100" velocity="20"/>
+  </joint>
+
+  <link name="arm_upper_right">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx=".1" ixy="0" ixz="0" iyy=".1" iyz="0" izz=".1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find gazebo_tutorial)/meshes/arm_upper.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  </link>
+
+
+  <joint name="shoulder_to_arm_upper_right" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
+    <parent link="shoulder_right"/>
+    <child link="arm_upper_right"/>
+    <axis rpy="0 0 0" xyz="0 0 1"/> 
+    <limit lower="-${pi}" upper="${pi}" effort="100" velocity="20"/>
+  </joint>
+
+
+  <link name="arm_upper_left">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx=".1" ixy="0" ixz="0" iyy=".1" iyz="0" izz=".1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find gazebo_tutorial)/meshes/arm_upper.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="shoulder_to_arm_upper_left" type="revolute">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="shoulder_left"/>
+    <child link="arm_upper_left"/>
+    <axis rpy="0 0 0" xyz="0 0 1"/> 
+    <limit lower="-${pi}" upper="${pi}" effort="100" velocity="20"/>
+  </joint> 
+
+  <link name="arm_lower_right">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx=".1" ixy="0" ixz="0" iyy=".1" iyz="0" izz=".1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find gazebo_tutorial)/meshes/arm_lower.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="arm_upper_to_lower_right" type="revolute">
+    <origin xyz="0 -.358 0" rpy="0 -${pi/2} 0"/>
+    <parent link="arm_upper_right"/>
+    <child link="arm_lower_right"/>
+    <axis rpy="0 0 0" xyz="0 0 1"/> 
+    <limit lower="-${pi}" upper="${pi}" effort="100" velocity="20"/>
+  </joint> 
+
+  <link name="arm_lower_left">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx=".1" ixy="0" ixz="0" iyy=".1" iyz="0" izz=".1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find gazebo_tutorial)/meshes/arm_lower.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="arm_upper_to_lower_left" type="revolute">
+    <origin xyz="0 -.358 0" rpy="0 ${pi/2} 0"/>
+    <parent link="arm_upper_left"/>
+    <child link="arm_lower_left"/>
+    <axis rpy="0 0 0" xyz="0 0 1"/> 
+    <limit lower="-${pi}" upper="${pi}" effort="100" velocity="20"/>
+  </joint> 
+
+  <link name="hand_right">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx=".1" ixy="0" ixz="0" iyy=".1" iyz="0" izz=".1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find gazebo_tutorial)/meshes/hand_right.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="arm_lower_to_hand_right" type="fixed">
+    <origin xyz="0 -.338 0" rpy="${pi/2} -${pi} 0"/>
+    <parent link="arm_lower_right"/>
+    <child link="hand_right"/>
+  </joint> 
+
+  <link name="hand_left">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx=".1" ixy="0" ixz="0" iyy=".1" iyz="0" izz=".1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find gazebo_tutorial)/meshes/hand_left.STL" scale="1 1 1"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  </link>
+
+  <joint name="arm_lower_to_hand_left" type="fixed">
+    <origin xyz="0 -.338 0" rpy="${pi/2} 0 0"/>
+    <parent link="arm_lower_left"/>
+    <child link="hand_left"/>
+  </joint> 
+
+  <gazebo reference="head">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="body">
+    <material>Gazebo/White</material>
+  </gazebo>
+
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+    <joint name="arm_upper_to_lower_right">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">0</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="arm_upper_to_lower_left">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position">
+        <param name="initial_value">0</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <parameters>$(find gazebo_tutorial)/config/joint_controller.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+</robot>
